@@ -15,12 +15,12 @@ export default function Home() {
 
   const nextMonth = () => {
     setToday(new Date(today.setMonth(today.getMonth() + 1)));
-    setMonthString(today.toLocaleString('default', { month: 'long' }));
+    setMonthString(today.toLocaleString(`default`, { month: `long` }));
     setYearString(today.getFullYear());
   };
   const prevMonth = () => {
     setToday(new Date(today.setMonth(today.getMonth() - 1)));
-    setMonthString(today.toLocaleString('default', { month: 'long' }));
+    setMonthString(today.toLocaleString(`default`, { month: `long` }));
     setYearString(today.getFullYear());
   };
 
