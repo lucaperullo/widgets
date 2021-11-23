@@ -49,7 +49,7 @@ export default function Home() {
                 {/*header*/}
                 <div className="flex items-start justify-between p-3 border-b border-solid border-blueGray-200 rounded-t">
                   <h2 className="font-bold text-xl">
-                    Sicilia: tutta l"isola in un viaggio solo!
+                    Sicilia: tutta l&quot;isola in un viaggio solo!
                   </h2>
                   <button
                     onClick={() => setShowModal(false)}
