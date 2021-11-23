@@ -1,26 +1,26 @@
-import Head from 'next/head';
-import Image from 'next/image';
+import Head from "next/head";
+import Image from "next/image";
 
-import styles from '@/styles/Home.module.css';
-import { useEffect, useState } from 'react';
+import styles from "@/styles/Home.module.css";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [today, setToday] = useState(new Date());
   const [showModal, setShowModal] = useState(false);
 
   const [monthString, setMonthString] = useState(
-    today.toLocaleString('default', { month: 'long' }),
+    today.toLocaleString("default", { month: "long" }),
   );
   const [yearString, setYearString] = useState(today.getFullYear());
 
   const nextMonth = () => {
     setToday(new Date(today.setMonth(today.getMonth() + 1)));
-    setMonthString(today.toLocaleString('default', { month: 'long' }));
+    setMonthString(today.toLocaleString("default", { month: "long" }));
     setYearString(today.getFullYear());
   };
   const prevMonth = () => {
     setToday(new Date(today.setMonth(today.getMonth() - 1)));
-    setMonthString(today.toLocaleString('default', { month: 'long' }));
+    setMonthString(today.toLocaleString("default", { month: "long" }));
     setYearString(today.getFullYear());
   };
 
@@ -34,7 +34,7 @@ export default function Home() {
 
   const getDaysInMonth = (month: any, year: any) =>
     new Array(31)
-      .fill('')
+      .fill('")
       .map((v, i) => new Date(year, month - 1, i + 1))
       .filter((v) => v.getMonth() === month - 1);
 
@@ -49,7 +49,7 @@ export default function Home() {
                 {/*header*/}
                 <div className="flex items-start justify-between p-3 border-b border-solid border-blueGray-200 rounded-t">
                   <h2 className="font-bold text-xl">
-                    Sicilia: tutta l'isola in un viaggio solo!
+                    Sicilia: tutta l"isola in un viaggio solo!
                   </h2>
                   <button
                     onClick={() => setShowModal(false)}
@@ -82,15 +82,15 @@ export default function Home() {
                     type="button"
                     className="bg-white rounded-md p-2 inline-flex items-center justify-center text-red-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                   >
-                    {'<'}
+                    {"<"}
                   </button>
                   <h3
-                    style={{ minWidth: '270px' }}
+                    style={{ minWidth: "270px" }}
                     className="text-3xl font-semibold align-center text-center"
                   >
                     {monthString.charAt(0).toUpperCase() +
                       monthString.slice(1) +
-                      ' ' +
+                      " " +
                       yearString}
                   </h3>
                   <button
@@ -98,7 +98,7 @@ export default function Home() {
                     type="button"
                     className="bg-white rounded-md p-2 inline-flex items-center justify-center text-red-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                   >
-                    {'>'}
+                    {">"}
                   </button>
                 </div>
                 <div className="days flex flex-wrap border-t border-l">
@@ -109,9 +109,9 @@ export default function Home() {
                     <div
                       key={i}
                       onClick={(e) => {
-                        e.currentTarget.classList.value === 'cell'
-                          ? e.currentTarget.classList.add('selected')
-                          : e.currentTarget.classList.remove('selected');
+                        e.currentTarget.classList.value === "cell"
+                          ? e.currentTarget.classList.add("selected")
+                          : e.currentTarget.classList.remove("selected");
                       }}
                       className="cell"
                     >
