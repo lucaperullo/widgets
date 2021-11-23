@@ -1,0 +1,28 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+.cell {
+  width: 90px;
+  height: 90px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: top;
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cell:hover {
+  background: #fff2f2d5;
+}
+.cell.selected {
+  background: #feeded;
+}
+.days {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  border-radius: 6px;
+}
