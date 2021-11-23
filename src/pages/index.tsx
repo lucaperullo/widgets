@@ -9,7 +9,7 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false);
 
   const [monthString, setMonthString] = useState(
-    today.toLocaleString('default', { month: 'long' }),
+    today.toLocaleString(`default`, { month: `long` }),
   );
   const [yearString, setYearString] = useState(today.getFullYear());
 
