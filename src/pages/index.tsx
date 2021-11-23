@@ -34,7 +34,7 @@ export default function Home() {
 
   const getDaysInMonth = (month: any, year: any) =>
     new Array(31)
-      .fill('')
+      .fill(``)
       .map((v, i) => new Date(year, month - 1, i + 1))
       .filter((v) => v.getMonth() === month - 1);
 
