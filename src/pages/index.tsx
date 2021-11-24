@@ -1,9 +1,7 @@
-import Head from 'next/head';
-import Image from 'next/image';
-
 import styles from '@/styles/Home.module.css';
-import { useEffect, useState } from 'react';
-
+import { Button, IconButton } from '@mui/material';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 export default function Home() {
   const [today, setToday] = useState(new Date());
   const [showModal, setShowModal] = useState(false);
@@ -24,14 +22,6 @@ export default function Home() {
     setYearString(today.getFullYear());
   };
 
-  const selectDay = (day: number) => {
-    setToday(new Date(today.setDate(day)));
-  };
-
-  const selectYear = (year: number) => {
-    setToday(new Date(today.setFullYear(year)));
-  };
-
   const getDaysInMonth = (month: any, year: any) =>
     new Array(31)
       .fill(``)
@@ -49,12 +39,13 @@ export default function Home() {
                 {/*header*/}
                 <div className="flex items-start justify-between p-3 border-b border-solid border-blueGray-200 rounded-t">
                   <h2 className="font-bold text-xl">
-                    Sicilia: tutta l&quot;isola in un viaggio solo!
+                    Sicilia: tutta l&apos;isola in un viaggio solo!
                   </h2>
-                  <button
+                  <IconButton
+                    style={{ color: `#e28579` }}
+                    className="rounded-md"
                     onClick={() => setShowModal(false)}
-                    type="button"
-                    className="bg-white rounded-md p-1 inline-flex items-center justify-center text-red-400 hover:text-red-500 hover:bg-gray-100 focus:outline-none focus:text-yellow-500"
+                    aria-label="close"
                   >
                     <span className="sr-only">Close menu</span>
 
@@ -73,36 +64,48 @@ export default function Home() {
                         d="M6 18L18 6M6 6l12 12"
                       />
                     </svg>
-                  </button>
+                  </IconButton>
                 </div>
                 {/*body*/}
                 <div className="flex justify-center w-100 py-7 align-center">
-                  <button
+                  <IconButton
+                    style={{ fontSize: `12px` }}
                     onClick={() => prevMonth()}
-                    type="button"
-                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-red-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                   >
-                    {`<`}
-                  </button>
+                    <svg
+                      width="24"
+                      height="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                    >
+                      <path d="M20 .755l-14.374 11.245 14.374 11.219-.619.781-15.381-12 15.391-12 .609.755z" />
+                    </svg>
+                  </IconButton>
                   <h3
                     style={{ minWidth: `270px` }}
-                    className="text-3xl font-semibold align-center text-center"
+                    className="text-3xl font-bold align-center text-center"
                   >
                     {monthString.charAt(0).toUpperCase() +
                       monthString.slice(1) +
                       ` ` +
                       yearString}
                   </h3>
-                  <button
-                    onClick={() => nextMonth()}
-                    type="button"
-                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-red-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                  >
-                    {`>`}
-                  </button>
+
+                  <IconButton onClick={() => nextMonth()}>
+                    <svg
+                      width="24"
+                      height="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                    >
+                      <path d="M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z" />
+                    </svg>
+                  </IconButton>
                 </div>
                 <div className="days-container">
-                  <div className="days flex flex-wrap">
+                  <div className="days flex flex-wrap ">
                     {getDaysInMonth(
                       today.getMonth() + 1,
                       today.getFullYear(),
@@ -136,20 +139,36 @@ export default function Home() {
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="text-grey-900 background-transparent border-grey-900 font-bold uppercase px-6 py-2 text-sm outline rounded focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
+                  <Button
+                    style={{
+                      fontWeight: 600,
+                      color: `#000`,
+                      borderColor: `#000`,
+                      border: `2px solid #000`,
+                      marginRight: `10px`,
+                      borderRadius: `10px`,
+                      padding: `5px`,
+                      width: `120px`,
+                    }}
                     onClick={() => setShowModal(false)}
+                    variant="outlined"
                   >
                     Annulla
-                  </button>
-                  <button
-                    className="bg-yellow-600 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
+                  </Button>
+                  <Button
+                    style={{
+                      fontWeight: 600,
+                      color: `#fff`,
+                      backgroundColor: `#ec5a4b`,
+                      marginRight: `10px`,
+                      borderRadius: `10px`,
+                      padding: `7px`,
+                      width: `120px`,
+                    }}
                     onClick={() => setShowModal(false)}
                   >
                     Prosegui
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
