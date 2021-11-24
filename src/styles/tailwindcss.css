@@ -1,6 +1,92 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.discount-icon {
+  height: 17px;
+  width: 17px;
+  top: 0;
+  left: 0;
+}
+.price {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  line-height: 0.8;
+  width: 100%;
+  text-align: center;
+}
+.price-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+.price-discount {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgb(83, 83, 83);
+  line-height: 0.8;
+  width: 100%;
+  text-align: center;
+  text-decoration: line-through;
+}
+.price-discounted {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #e78176;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  padding: 3px;
+  text-align: center;
+  line-height: 1;
+  width: 100%;
+}
+.cell {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  /* align-items: top; */
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cell:hover {
+  background: #fff2f2d5;
+}
+.cell.selected {
+  background: #feeded;
+}
+.days {
+  z-index: 0;
+  display: flex;
+  justify-content: flex-start;
+
+  align-items: center;
+  flex-wrap: wrap;
+}
+.days-container {
+  height: auto;
+  width: 705px;
+  border-radius: 20px;
+  transform: scale(0.95);
+  border: 2px solid #dddddd;
+}
+.day-name {
+  position: absolute;
+  top: -25px;
+
+  z-index: 2;
+  color: #c3c3c3;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
 .day-number {
   font-size: 1.2rem;
   font-weight: 400;
@@ -22,84 +108,4 @@
   justify-self: flex-end;
   position: relative;
   top: -19px;
-}
-.price-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  justify-content: flex-end;
-  align-items: baseline;
-}
-.price {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: rgb(0, 0, 0);
-  line-height: 0.8;
-  width: 100%;
-  text-align: center;
-}
-.price-discount {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: rgb(83, 83, 83);
-  line-height: 0.8;
-  width: 100%;
-  text-align: center;
-  text-decoration: line-through;
-}
-.discount-icon {
-  height: 17px;
-  width: 17px;
-  top: 0;
-  left: 0;
-}
-.price-discounted {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #e78176;
-  border: 1px solid #e6e6e6;
-  border-radius: 3px;
-  padding: 3px;
-  text-align: center;
-  line-height: 1;
-  width: 100%;
-}
-.cell {
-  width: 90px;
-  height: 90px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: flex-end; */
-  /* align-items: top; */
-  border: 1px solid #f0f0f0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.cell:hover {
-  background: #fff2f2d5;
-}
-.cell.selected {
-  background: #feeded;
-}
-.days {
-  z-index: 0;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 23px;
-  align-items: center;
-  flex-wrap: wrap;
-  transform: scale(1.06);
-  margin-top: 9px;
-}
-.days-container {
-  overflow: hidden;
-  z-index: 1;
-  border-radius: 20px;
-  transform: scale(0.95);
-  border: 2px solid #eeeeee;
-  width: 100%;
-  display: flex;
-  justify-content: center;
 }
