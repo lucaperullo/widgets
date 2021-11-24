@@ -1,13 +1,68 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+.day-number {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  text-align: end;
+  line-height: 1;
+  width: 100%;
+  justify-self: flex-end;
+  position: relative;
+  top: -19px;
+}
+.day-number-empty {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #d3d3d3;
+  text-align: end;
+  line-height: 1;
+  width: 100%;
+  justify-self: flex-end;
+  position: relative;
+  top: -19px;
+}
+.price-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+.price-discount {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgb(83, 83, 83);
+  line-height: 0.8;
+  width: 100%;
+  text-align: center;
+  text-decoration: line-through;
+}
+.discount-icon {
+  height: 17px;
+  width: 17px;
+  top: 0;
+  left: 0;
+}
+.price-discounted {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #e78176;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+  line-height: 1;
+  width: 100%;
+}
 .cell {
   width: 90px;
   height: 90px;
   padding: 10px;
   display: flex;
-  justify-content: flex-end;
-  align-items: top;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  /* align-items: top; */
   border: 1px solid #f0f0f0;
   cursor: pointer;
   transition: all 0.3s ease;

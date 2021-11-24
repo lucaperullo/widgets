@@ -109,15 +109,26 @@ export default function Home() {
                     ).map((v, i) => (
                       <div
                         key={i}
-                        onClick={(e) => {
-                          e.currentTarget.classList.value === `cell`
-                            ? e.currentTarget.classList.add(`selected`)
-                            : e.currentTarget.classList.remove(`selected`);
-                        }}
-                        className="cell"
+                        className="day"
+                        onClick={(e: any) => console.log(e.target.innerText)}
                       >
-                        <div onClick={(e: any) => console.log(e.target)}>
-                          {i + 1}
+                        <div
+                          onClick={(e) => {
+                            e.currentTarget.classList.value === `cell`
+                              ? e.currentTarget.classList.add(`selected`)
+                              : e.currentTarget.classList.remove(`selected`);
+                          }}
+                          className="cell"
+                        >
+                          <img
+                            src="https://media.discordapp.net/attachments/912367384118063156/913001547070328872/discounticon.png"
+                            className="discount-icon"
+                          />
+                          <span className="day-number">{v.getDate()}</span>
+                          <div className="price-container">
+                            <div className="price-discount">Da 1099.99€</div>
+                            <div className="price-discounted">899.90€</div>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -126,7 +137,7 @@ export default function Home() {
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                   <button
-                    className="text-grey-900 background-transparent font-bold uppercase px-6 py-2 text-sm outline rounded focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="text-grey-900 background-transparent border-grey-900 font-bold uppercase px-6 py-2 text-sm outline rounded focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
