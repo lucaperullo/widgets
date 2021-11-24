@@ -101,25 +101,27 @@ export default function Home() {
                     {`>`}
                   </button>
                 </div>
-                <div className="days flex flex-wrap border-t border-l">
-                  {getDaysInMonth(
-                    today.getMonth() + 1,
-                    today.getFullYear(),
-                  ).map((v, i) => (
-                    <div
-                      key={i}
-                      onClick={(e) => {
-                        e.currentTarget.classList.value === `cell`
-                          ? e.currentTarget.classList.add(`selected`)
-                          : e.currentTarget.classList.remove(`selected`);
-                      }}
-                      className="cell"
-                    >
-                      <div onClick={(e: any) => console.log(e.target)}>
-                        {i + 1}
+                <div className="days-container">
+                  <div className="days flex flex-wrap">
+                    {getDaysInMonth(
+                      today.getMonth() + 1,
+                      today.getFullYear(),
+                    ).map((v, i) => (
+                      <div
+                        key={i}
+                        onClick={(e) => {
+                          e.currentTarget.classList.value === `cell`
+                            ? e.currentTarget.classList.add(`selected`)
+                            : e.currentTarget.classList.remove(`selected`);
+                        }}
+                        className="cell"
+                      >
+                        <div onClick={(e: any) => console.log(e.target)}>
+                          {i + 1}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
