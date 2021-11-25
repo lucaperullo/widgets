@@ -21,13 +21,13 @@ const Calendar = (props: any) => {
     setToday(new Date(today.setMonth(today.getMonth() + 1)));
     setLMonth(today.getMonth() + 1);
     setLYear(today.getFullYear());
-    setMonthString(today.toLocaleString(`default`, { month: `long` }));
+    setMonthString(today.toLocaleString(locale, { month: `long` }));
   };
   const prevMonth = () => {
     setToday(new Date(today.setMonth(today.getMonth() - 1)));
     setLMonth(today.getMonth() + 1);
     setLYear(today.getFullYear());
-    setMonthString(today.toLocaleString(`default`, { month: `long` }));
+    setMonthString(today.toLocaleString(locale, { month: `long` }));
   };
 
   const addEventsToDays = (days: any) => {
@@ -80,8 +80,8 @@ const Calendar = (props: any) => {
 
   return (
     <>
-      <div className="justify-center items-center  flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+      <div className="flex justify-top overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+        <div className="w-auto mx-auto max-w-3xl">
           {/*content*/}
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             {/*header*/}
@@ -165,25 +165,42 @@ const Calendar = (props: any) => {
                           <div className="day-name">{daysArray[i]}</div>
                         )}
 
-                        {v !== null && v.event === null ? (
-                          <div style={{ height: `20px` }}></div>
-                        ) : (
+                        {v && v.event !== null && v.event.discountPrice ? (
                           <img
                             src="https://media.discordapp.net/attachments/912367384118063156/913001547070328872/discounticon.png"
                             className="discount-icon"
                           />
+                        ) : (
+                          <div style={{ height: `20px` }}></div>
                         )}
-                        <span className="day-number">
-                          {v !== null ? v.i : null}
-                        </span>
+                        {v && v.event !== null ? (
+                          <span className="day-number">
+                            {v !== null ? v.i : null}
+                          </span>
+                        ) : (
+                          <span className="day-number-empty">
+                            {v !== null ? v.i : null}
+                          </span>
+                        )}
+
                         {v !== null && v.event !== null ? (
                           <div className="price-container">
-                            <div className="price-discount">
-                              Da {v.event.price}€
-                            </div>
-                            <div className="price-discounted">
-                              {v.event.discountPrice}€
-                            </div>
+                            {v !== null &&
+                            v.event !== null &&
+                            v.event.discountPrice &&
+                            v.event.price ? (
+                              <div className="price-discount">
+                                Da {v.event.price}€
+                              </div>
+                            ) : (
+                              <div className="price">Da {v.event.price}€</div>
+                            )}
+
+                            {v && v.event !== null && v.event.discountPrice ? (
+                              <div className="price-discounted">
+                                {v.event.discountPrice}€
+                              </div>
+                            ) : null}
                           </div>
                         ) : null}
                       </div>

@@ -96,12 +96,12 @@
   width: 100%;
   justify-self: flex-end;
   position: relative;
-  top: -19px;
+  top: -20px;
 }
 .day-number-empty {
   font-size: 1.2rem;
   font-weight: 400;
-  color: #d3d3d3;
+  color: #bebebe;
   text-align: end;
   line-height: 1;
   width: 100%;

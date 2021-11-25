@@ -20,7 +20,8 @@ export default function Home() {
     },
     {
       activityId: `1232134`,
-      date: `Thu Jan 16 2021 22:26:53 GMT+0100`,
+      date: `Thu Jan 16 2022 22:26:53 GMT+0100`,
+      price: `1600`,
     },
     {
       activityId: `12345`,
@@ -38,13 +39,11 @@ export default function Home() {
       activityId: `123124345`,
       date: `Sat Oct 21 2021 22:27:52 GMT+0100`,
       price: `2600`,
-      discountPrice: `1800`,
     },
     {
       activityId: `123456`,
       date: `Sat Dec 18 2021 22:28:17 GMT+0100`,
       price: `1800`,
-      discountPrice: `1500`,
     },
     {
       activityId: `1234567`,
@@ -62,7 +61,6 @@ export default function Home() {
       activityId: `123456789`,
       date: `Thu Dec 02 2021 22:29:02 GMT+0100`,
       price: `2100`,
-      discountPrice: `1500`,
     },
   ]);
   const generateRandomDate = () => {
