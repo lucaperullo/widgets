@@ -80,8 +80,11 @@ const Calendar = (props: any) => {
 
   return (
     <>
-      <div className="flex justify-top overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-        <div className="w-auto mx-auto max-w-3xl">
+      <div
+        style={{ backgroundColor: '#000000a1' }}
+        className="flex flex-shrink w-100 h-100 justify-top overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+      >
+        <div className="w-screen mx-auto max-w-3xl">
           {/*content*/}
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             {/*header*/}
@@ -159,20 +162,27 @@ const Calendar = (props: any) => {
                             ? e.currentTarget.classList.add(`selected`)
                             : e.currentTarget.classList.remove(`selected`);
                         }}
-                        className="cell"
+                        className="cell flex-shrink w-100 h-100"
                       >
                         {i < 7 && (
                           <div className="day-name">{daysArray[i]}</div>
                         )}
 
-                        {v && v.event !== null && v.event.discountPrice ? (
+                        {v && v.event !== null && v.event.discountPrice && (
                           <img
                             src="https://media.discordapp.net/attachments/912367384118063156/913001547070328872/discounticon.png"
                             className="discount-icon"
                           />
-                        ) : (
+                        )}
+                        {v && !v.event && (
                           <div style={{ height: `20px` }}></div>
                         )}
+                        {v && v.event !== null && !v.event.discountPrice ? (
+                          <img
+                            src="https://media.discordapp.net/attachments/912367384118063156/913452129337901076/icons8-calendario-a-foglietti-48.png"
+                            className="discount-icon"
+                          />
+                        ) : null}
                         {v && v.event !== null ? (
                           <span className="day-number">
                             {v !== null ? v.i : null}
@@ -225,6 +235,7 @@ const Calendar = (props: any) => {
                 }}
                 onClick={() => setShowModal(false)}
                 variant="outlined"
+                className="capitalize"
               >
                 Annulla
               </Button>
@@ -239,6 +250,7 @@ const Calendar = (props: any) => {
                   width: `120px`,
                 }}
                 onClick={() => setShowModal(false)}
+                className="capitalize"
               >
                 Prosegui
               </Button>

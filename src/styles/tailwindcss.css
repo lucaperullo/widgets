@@ -14,6 +14,8 @@
   color: rgb(0, 0, 0);
   line-height: 0.8;
   width: 100%;
+  position: relative;
+  top: -5px;
   text-align: center;
 }
 .price-container {
@@ -45,9 +47,9 @@
   width: 100%;
 }
 .cell {
-  width: 100px;
-  height: 100px;
-  padding: 10px;
+  min-width: 100px;
+  min-height: 100px;
+  padding: 7px;
   display: flex;
   flex-direction: column;
   /* justify-content: flex-end; */
@@ -58,6 +60,16 @@
 }
 .cell:hover {
   background: #fff2f2d5;
+  box-shadow: 0px 0px 10px #a78f8f73;
+  transform: scale(1.01);
+  transform: translate(0px, 1px);
+  z-index: 1;
+}
+.cell:hover > .day-name {
+  color: #e78176;
+}
+.cell:active > .day-name {
+  color: #e78176;
 }
 .cell.selected {
   background: #feeded;
@@ -67,12 +79,13 @@
   display: flex;
   justify-content: flex-start;
 
+  height: auto;
   align-items: center;
   flex-wrap: wrap;
 }
 .days-container {
   height: auto;
-  width: 705px;
+  min-width: 360px;
   border-radius: 20px;
   transform: scale(0.95);
   border: 2px solid #dddddd;
@@ -108,4 +121,63 @@
   justify-self: flex-end;
   position: relative;
   top: -19px;
+}
+@media (max-width: 605px) {
+  .days-container {
+    max-width: 605px;
+  }
+  .cell {
+    min-width: 85px;
+    min-height: 85px;
+  }
+}
+
+@media (max-width: 590px) {
+  .days-container {
+    max-width: 585px;
+  }
+  .cell {
+    min-width: 82px;
+    min-height: 82px;
+  }
+  .price-discount {
+    display: none;
+    font-size: 7px;
+  }
+}
+@media (max-width: 440px) {
+  .days-container {
+    max-width: 405px;
+  }
+  .cell {
+    min-width: 60px;
+    min-height: 60px;
+  }
+}
+@media (max-width: 360px) {
+  .days-container {
+    max-width: 315px;
+  }
+  .cell {
+    max-width: 40px;
+    max-height: 45px;
+  }
+  .price {
+    font-size: 11px;
+  }
+  .price-discount {
+    display: none;
+    font-size: 7px;
+  }
+  .price-discounted {
+    font-size: 12px;
+    border: none;
+  }
+  .day-number {
+    font-size: 14px;
+  }
+  .discount-icon {
+    height: 14px;
+    width: 14px;
+  }
 }
